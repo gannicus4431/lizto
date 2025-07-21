@@ -3,15 +3,16 @@ import Image from "next/image";
 export default function Hero3() {
   return (
     <div className="relative bg-white">
-      <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+      <div className="mx-auto max-w-7xl flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         {/* Image - Shows first on mobile, second on desktop */}
-        <div className="relative order-1 lg:order-2 lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
+        <div className="relative h-64 sm:h-80 order-1 lg:order-2 lg:col-span-5 lg:h-auto lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
           <Image
             alt="Elegant restaurant interior with handmade pasta station"
             src="/images/3.png"
-            className="aspect-3/2 w-full bg-amber-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
+            className="w-full h-full bg-amber-50 object-cover"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+            priority
           />
         </div>
 
