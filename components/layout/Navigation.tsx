@@ -1,18 +1,23 @@
 "use client";
 import Image from "next/image";
-import Link from 'next/link'
+import Link from "next/link";
 import { useState } from "react";
-import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
+import {
+  Dialog,
+  DialogPanel,
+  Transition,
+  TransitionChild,
+} from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment } from "react";
 
 const navigationLeft = [
   { name: "MENU", href: "/menu" },
-  { name: "CHEF", href: "chef" },
+  { name: "CHEF", href: "/chef" },
 ];
 
 const navigationRight = [
-  { name: "CONTACT", href: "#/contact" },
+  { name: "CONTACT", href: "/contact" },
   { name: "EVENTS", href: "/events" },
 ];
 
@@ -39,60 +44,60 @@ export default function Navigation() {
           {/* Left Navigation */}
           <div className="flex gap-x-8">
             {navigationLeft.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-xl/6 font-normal text-amber-900 hover:text-amber-700"
                 style={{ fontFamily: "'Crimson Text', serif" }}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Centered Logo */}
-<div className="flex-shrink-0 mx-4">
-  <Link href="/" className="-m-1.5 p-1.5">
-    <span className="sr-only">Lizto</span>
-    <Image
-      alt="Lizto Logo"
-      src="/images/logo.png"
-      className="h-20 w-auto"
-      width={80}
-      height={80}
-      priority
-    />
-  </Link>
-</div>
+          <div className="flex-shrink-0 mx-4">
+            <Link href="/" className="-m-1.5 p-1.5">
+              <span className="sr-only">Lizto</span>
+              <Image
+                alt="Lizto Logo"
+                src="/images/logo.png"
+                className="h-20 w-auto"
+                width={80}
+                height={80}
+                priority
+              />
+            </Link>
+          </div>
 
           {/* Right Navigation */}
           <div className="flex gap-x-8">
             {navigationRight.map((item) => (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-xl/6 font-normal text-amber-900 hover:text-amber-700"
                 style={{ fontFamily: "'Crimson Text', serif" }}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
 
         {/* Mobile Logo - Centered on mobile */}
         <div className="flex lg:hidden flex-1 justify-center">
-<Link href="/" className="-m-1.5 p-1.5">
-  <span className="sr-only">Lizto</span>
-  <Image
-    alt="Lizto Logo"
-    src="/images/logo.png"
-    className="h-20 w-auto"
-    width={80}
-    height={80}
-    priority
-  />
-</Link>
+          <Link href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Lizto</span>
+            <Image
+              alt="Lizto Logo"
+              src="/images/logo.png"
+              className="h-20 w-auto"
+              width={80}
+              height={80}
+              priority
+            />
+          </Link>
         </div>
 
         {/* Mobile Menu Button - On the right */}
@@ -107,7 +112,7 @@ export default function Navigation() {
           </button>
         </div>
       </nav>
-      
+
       {/* Mobile Menu Dialog with Transition */}
       <Transition show={mobileMenuOpen} as={Fragment}>
         <Dialog onClose={setMobileMenuOpen} className="relative z-50 lg:hidden">
@@ -153,13 +158,13 @@ export default function Navigation() {
                         <ul role="list" className="-mx-2 space-y-1">
                           {allNavigation.map((item) => (
                             <li key={item.name}>
-                              <a
+                              <Link
                                 href={item.href}
                                 className="block rounded-md py-2 px-3 text-3xl font-normal text-amber-900 hover:bg-amber-100"
                                 style={{ fontFamily: "'Crimson Text', serif" }}
                               >
                                 {item.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>

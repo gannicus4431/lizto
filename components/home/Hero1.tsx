@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Hero1() {
@@ -56,14 +57,14 @@ export default function Hero1() {
                 : 'translate-y-8 opacity-0'
             }`}
             style={{ transitionDelay: '800ms' }}>
-              <a
-                href="#"
+              <Link
+                href="/reservations"
                 className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out"
               >
                 <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
                   reserve table
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
