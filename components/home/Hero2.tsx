@@ -91,7 +91,7 @@ export default function Hero2() {
 
             {/* Call to Action Button */}
             <a
-              href="#"
+              href="/menu"
               className={`inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-all duration-300 ease-out transform ${
                 isTextVisible 
                   ? 'translate-y-0 opacity-100' 

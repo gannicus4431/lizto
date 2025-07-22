@@ -1,25 +1,26 @@
 "use client";
 import Image from "next/image";
+import Link from 'next/link'
 import { useState } from "react";
 import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment } from "react";
 
 const navigationLeft = [
-  { name: "MENU", href: "#" },
-  { name: "CHEF", href: "#" },
+  { name: "MENU", href: "/menu" },
+  { name: "CHEF", href: "chef" },
 ];
 
 const navigationRight = [
-  { name: "CONTACT", href: "#" },
-  { name: "FOLLOW", href: "#" },
+  { name: "CONTACT", href: "#/contact" },
+  { name: "EVENTS", href: "/events" },
 ];
 
 const allNavigation = [
-  { name: "MENU", href: "#" },
-  { name: "CHEF", href: "#" },
-  { name: "CONTACT", href: "#" },
-  { name: "FOLLOW", href: "#" },
+  { name: "MENU", href: "/menu" },
+  { name: "CHEF", href: "/chef" },
+  { name: "CONTACT", href: "/contact" },
+  { name: "EVENTS", href: "/events" },
 ];
 
 export default function Navigation() {
@@ -50,19 +51,19 @@ export default function Navigation() {
           </div>
 
           {/* Centered Logo */}
-          <div className="flex-shrink-0 mx-4">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Lizto</span>
-              <Image
-                alt="Lizto Logo"
-                src="/images/logo.png"
-                className="h-20 w-auto"
-                width={80}
-                height={80}
-                priority
-              />
-            </a>
-          </div>
+<div className="flex-shrink-0 mx-4">
+  <Link href="/" className="-m-1.5 p-1.5">
+    <span className="sr-only">Lizto</span>
+    <Image
+      alt="Lizto Logo"
+      src="/images/logo.png"
+      className="h-20 w-auto"
+      width={80}
+      height={80}
+      priority
+    />
+  </Link>
+</div>
 
           {/* Right Navigation */}
           <div className="flex gap-x-8">
@@ -81,17 +82,17 @@ export default function Navigation() {
 
         {/* Mobile Logo - Centered on mobile */}
         <div className="flex lg:hidden flex-1 justify-center">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Lizto</span>
-            <Image
-              alt="Lizto Logo"
-              src="/images/logo.png"
-              className="h-20 w-auto"
-              width={80}
-              height={80}
-              priority
-            />
-          </a>
+<Link href="/" className="-m-1.5 p-1.5">
+  <span className="sr-only">Lizto</span>
+  <Image
+    alt="Lizto Logo"
+    src="/images/logo.png"
+    className="h-20 w-auto"
+    width={80}
+    height={80}
+    priority
+  />
+</Link>
         </div>
 
         {/* Mobile Menu Button - On the right */}
