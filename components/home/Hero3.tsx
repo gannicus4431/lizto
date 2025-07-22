@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 
 export default function Hero3() {
@@ -6,6 +7,9 @@ export default function Hero3() {
   const textRef = useRef(null);
 
   useEffect(() => {
+    // Store the current ref value in a variable
+    const currentRef = textRef.current;
+    
     // Intersection Observer for the text content
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -19,13 +23,14 @@ export default function Hero3() {
       }
     );
 
-    if (textRef.current) {
-      observer.observe(textRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (textRef.current) {
-        observer.unobserve(textRef.current);
+      // Use the stored ref value in cleanup
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -73,14 +78,14 @@ export default function Hero3() {
                 : 'translate-y-8 opacity-0'
             }`}
             style={{ transitionDelay: '600ms' }}>
-              <a
-                href="#"
+              <Link
+                href="/about"
                 className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out"
               >
                 <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
                   more about us
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
