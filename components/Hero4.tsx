@@ -1,6 +1,35 @@
 import Image from "next/image";
+import { useEffect, useState, useRef } from "react";
 
 export default function Hero4() {
+  const [isTextVisible, setIsTextVisible] = useState(false);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    // Intersection Observer for the text content
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTextVisible(true);
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation 50px before element comes into view
+      }
+    );
+
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
+
+    return () => {
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-amber-50">
       <main>
@@ -40,20 +69,34 @@ export default function Hero4() {
             <div className="mx-auto max-w-7xl px-6 pt-18 pb-32 sm:pt-60 lg:px-8 lg:pt-32">
               <div className="mx-auto max-w-2xl gap-x-14 flex flex-col-reverse lg:mx-0 lg:flex-row lg:max-w-none lg:items-center">
                 {/* TEXT */}
-                <div className="relative w-full mt-12 lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
+                <div className="relative w-full mt-12 lg:max-w-xl lg:shrink-0 xl:max-w-2xl" ref={textRef}>
                   <h1
-                    className="text-5xl font-normal tracking-tight text-pretty text-amber-900 sm:text-7xl"
+                    className={`text-5xl font-normal tracking-tight text-pretty text-amber-900 sm:text-7xl transform transition-all duration-1000 ease-out ${
+                      isTextVisible 
+                        ? 'translate-y-0 opacity-100' 
+                        : 'translate-y-8 opacity-0'
+                    }`}
                     style={{ fontFamily: "'Crimson Text', serif" }}
                   >
                     Crafting memories, one dish at a time
                   </h1>
-                  <p className="mt-8 text-lg font-medium text-pretty text-amber-700 sm:max-w-md sm:text-xl/8 lg:max-w-none">
+                  <p className={`mt-8 text-lg font-medium text-pretty text-amber-700 sm:max-w-md sm:text-xl/8 lg:max-w-none transform transition-all duration-1000 ease-out ${
+                    isTextVisible 
+                      ? 'translate-y-0 opacity-100' 
+                      : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{ transitionDelay: '300ms' }}>
                     From our kitchen to your table, every plate tells the story
                     of passion, tradition, and the art of handmade pasta. Join
                     us in celebrating the simple pleasure of exceptional food
                     shared with those you love.
                   </p>
-                  <div className="mt-10 flex items-center gap-x-6">
+                  <div className={`mt-10 flex items-center gap-x-6 transform transition-all duration-1000 ease-out ${
+                    isTextVisible 
+                      ? 'translate-y-0 opacity-100' 
+                      : 'translate-y-8 opacity-0'
+                  }`}
+                  style={{ transitionDelay: '600ms' }}>
                     <a
                       href="#"
                       className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out"

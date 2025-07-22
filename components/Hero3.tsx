@@ -1,6 +1,35 @@
 import Image from "next/image";
+import { useEffect, useState, useRef } from "react";
 
 export default function Hero3() {
+  const [isTextVisible, setIsTextVisible] = useState(false);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    // Intersection Observer for the text content
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsTextVisible(true);
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation 50px before element comes into view
+      }
+    );
+
+    if (textRef.current) {
+      observer.observe(textRef.current);
+    }
+
+    return () => {
+      if (textRef.current) {
+        observer.unobserve(textRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
@@ -17,19 +46,33 @@ export default function Hero3() {
         </div>
 
         {/* Text Content - Shows second on mobile, first on desktop */}
-        <div className="px-6 pt-10 pb-24 sm:pb-32 order-2 lg:order-1 lg:col-span-7 lg:px-0 lg:pt-40 lg:pb-48 xl:col-span-6">
+        <div className="px-6 pt-10 pb-24 sm:pb-32 order-2 lg:order-1 lg:col-span-7 lg:px-0 lg:pt-40 lg:pb-48 xl:col-span-6" ref={textRef}>
           <div className="mx-auto max-w-lg lg:mx-0">
             <h1
-              className="mt-24 text-5xl font-normal tracking-tight text-pretty text-amber-900 sm:mt-10 sm:text-7xl"
+              className={`mt-24 text-5xl font-normal tracking-tight text-pretty text-amber-900 sm:mt-10 sm:text-7xl transform transition-all duration-1000 ease-out ${
+                isTextVisible 
+                  ? 'translate-y-0 opacity-100' 
+                  : 'translate-y-8 opacity-0'
+              }`}
               style={{ fontFamily: "'Crimson Text', serif" }}
             >
               Every dish tells a story, every bite creates a memory
             </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-amber-700 sm:text-xl/8">
+            <p className={`mt-8 text-lg font-medium text-pretty text-amber-700 sm:text-xl/8 transform transition-all duration-1000 ease-out ${
+              isTextVisible 
+                ? 'translate-y-0 opacity-100' 
+                : 'translate-y-8 opacity-0'
+            }`}
+            style={{ transitionDelay: '300ms' }}>
               Come as you are to our warm, spirited space. Because life is more
               delicious when you take the time to truly enjoy it.
             </p>
-            <div className="mt-10 flex items-center gap-x-6">
+            <div className={`mt-10 flex items-center gap-x-6 transform transition-all duration-1000 ease-out ${
+              isTextVisible 
+                ? 'translate-y-0 opacity-100' 
+                : 'translate-y-8 opacity-0'
+            }`}
+            style={{ transitionDelay: '600ms' }}>
               <a
                 href="#"
                 className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out"
