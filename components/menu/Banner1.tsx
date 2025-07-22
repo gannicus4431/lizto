@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Banner1() {
   return (
     <section className="relative">
@@ -18,7 +20,7 @@ export default function Banner1() {
               <h2 className="text-5xl md:text-7xl font-serif text-amber-900 leading-tight">
                 Our Menu
               </h2>
-                            <p className="text-lg md:text-xl text-amber-800 leading-relaxed mb-8">
+              <p className="text-lg md:text-xl text-amber-800 leading-relaxed mb-8">
                 Discover our carefully crafted dishes, made with the finest
                 ingredients.{" "}
               </p>
@@ -26,34 +28,33 @@ export default function Banner1() {
 
             {/* Right Column - Description and Buttons */}
             <div>
-
               <div className="space-y-4">
-                <a
-                  href="#"
+                <Link
+                  href="/brunch"
                   className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-all duration-300 ease-out transform hover:scale-105"
                 >
                   <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
                     brunch
                   </span>
-                </a>
+                </Link>
                 <br />
-                <a
-                  href="#"
+                <Link
+                  href="/lunch-dinner"
                   className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-all duration-300 ease-out transform hover:scale-105"
                 >
                   <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
                     lunch & dinner
                   </span>
-                </a>
+                </Link>
                 <br />
-                <a
-                  href="#"
+                <Link
+                  href="/high-tea"
                   className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-all duration-300 ease-out transform hover:scale-105"
                 >
                   <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
                     High Tea
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

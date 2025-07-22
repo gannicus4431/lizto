@@ -1,15 +1,16 @@
 import React from 'react';
+import Link from 'next/link';
 
 const navigation = {
   main: [
-    { name: 'Menu', href: '#' },
-    { name: 'About Us', href: '#' },
-    { name: 'Join Us', href: '#' },
+    { name: 'Menu', href: '/menu' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Join Us', href: '/careers' },
   ],
   social: [
     {
       name: 'Facebook',
-      href: '#',
+      href: 'https://facebook.com/lizto',
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -22,7 +23,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: '#',
+      href: 'https://instagram.com/lizto',
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -40,7 +41,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer className="bg-amber-100 border-t border-amber-200">
-              <style jsx global>{`
+      <style jsx global>{`
         @keyframes heartbeat {
           0%, 100% { transform: scale(1); }
           5% { transform: scale(1.2); }
@@ -61,13 +62,13 @@ export default function Footer() {
           className="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm text-amber-700"
         >
           {navigation.main.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className="hover:text-amber-900 transition-colors"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="mt-10 flex justify-center gap-x-8">
@@ -75,6 +76,8 @@ export default function Footer() {
             <a
               key={item.name}
               href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-amber-700 hover:text-amber-900"
             >
               <span className="sr-only">{item.name}</span>
@@ -83,7 +86,7 @@ export default function Footer() {
           ))}
         </div>
         
-         <p className="mt-10 text-center text-sm text-amber-600 flex justify-center items-center gap-1">
+        <p className="mt-10 text-center text-sm text-amber-600 flex justify-center items-center gap-1">
           &copy; 2025 Lizto
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -96,7 +99,6 @@ export default function Footer() {
           </svg>
           All rights reserved.
         </p>
-        
       </div>
     </footer>
   );

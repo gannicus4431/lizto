@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 
 export default function Hero2() {
@@ -8,7 +9,7 @@ export default function Hero2() {
   useEffect(() => {
     // Store the current ref value in a variable
     const currentRef = textRef.current;
-    
+
     // Intersection Observer for the "Good food, great company" text
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -18,7 +19,7 @@ export default function Hero2() {
       },
       {
         threshold: 0.3, // Trigger when 30% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Start animation 50px before element comes into view
+        rootMargin: "0px 0px -50px 0px", // Start animation 50px before element comes into view
       }
     );
 
@@ -63,9 +64,9 @@ export default function Hero2() {
           <div ref={textRef}>
             <h1
               className={`mt-24 text-5xl font-normal tracking-tight text-pretty text-amber-900 sm:mt-10 sm:text-7xl transform transition-all duration-1000 ease-out ${
-                isTextVisible 
-                  ? 'translate-y-0 opacity-100' 
-                  : 'translate-y-8 opacity-0'
+                isTextVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
               style={{ fontFamily: "'Crimson Text', serif" }}
             >
@@ -76,12 +77,14 @@ export default function Hero2() {
           {/* Right Column */}
           <div>
             {/* Description Text */}
-            <div className={`text-amber-800 leading-relaxed space-y-4 mb-8 transform transition-all duration-1000 ease-out ${
-              isTextVisible 
-                ? 'translate-y-0 opacity-100' 
-                : 'translate-y-8 opacity-0'
-            }`}
-            style={{ transitionDelay: '300ms' }}>
+            <div
+              className={`text-amber-800 leading-relaxed space-y-4 mb-8 transform transition-all duration-1000 ease-out ${
+                isTextVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
+              style={{ transitionDelay: "300ms" }}
+            >
               <p className="mt-8 text-lg font-medium text-pretty text-amber-700 sm:text-xl/8">
                 Welcome to Lizto, a pasta sanctuary where tradition and
                 imagination meet. Founded by Chef Tom Choi, whose journey
@@ -94,19 +97,19 @@ export default function Hero2() {
             </div>
 
             {/* Call to Action Button */}
-            <a
+            <Link
               href="/menu"
               className={`inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-all duration-300 ease-out transform ${
-                isTextVisible 
-                  ? 'translate-y-0 opacity-100' 
-                  : 'translate-y-8 opacity-0'
+                isTextVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
               }`}
-              style={{ transitionDelay: '600ms' }}
+              style={{ transitionDelay: "600ms" }}
             >
               <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
                 see our menu
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
