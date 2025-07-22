@@ -6,6 +6,9 @@ export default function Hero2() {
   const textRef = useRef(null);
 
   useEffect(() => {
+    // Store the current ref value in a variable
+    const currentRef = textRef.current;
+    
     // Intersection Observer for the "Good food, great company" text
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -19,13 +22,14 @@ export default function Hero2() {
       }
     );
 
-    if (textRef.current) {
-      observer.observe(textRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (textRef.current) {
-        observer.unobserve(textRef.current);
+      // Use the stored ref value in cleanup
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
