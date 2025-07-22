@@ -49,7 +49,7 @@ export default function Hero2() {
           <div>
             <Image
               alt="Elegant restaurant interior with stained glass window"
-              src="/images/2.jpg"
+              src="/images/home/2.jpg"
               className="w-screen sm:w-full sm:max-w-4xl h-64 sm:h-120 object-cover"
               width={2070}
               height={1380}

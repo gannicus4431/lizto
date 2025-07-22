@@ -118,7 +118,7 @@ export default function Hero4() {
                     <div className="relative">
                       <Image
                         alt="Fresh handmade pasta in our kitchen"
-                        src="/images/4.1.jpg"
+                        src="/images/home/4.1.jpg"
                         className="aspect-2/3 w-full rounded-xl bg-amber-100/50 object-cover shadow-lg"
                         width={176}
                         height={264}
@@ -130,7 +130,7 @@ export default function Hero4() {
                     <div className="relative">
                       <Image
                         alt="Chef preparing pasta with care"
-                        src="/images/4.2.png"
+                        src="/images/home/4.2.png"
                         className="aspect-2/3 w-full rounded-xl bg-amber-100/50 object-cover shadow-lg"
                         width={176}
                         height={264}
@@ -140,7 +140,7 @@ export default function Hero4() {
                     <div className="relative">
                       <Image
                         alt="Elegant dining atmosphere"
-                        src="/images/4.5.jpeg"
+                        src="/images/home/4.5.jpeg"
                         className="aspect-2/3 w-full rounded-xl bg-amber-100/50 object-cover shadow-lg"
                         width={176}
                         height={264}
@@ -152,7 +152,7 @@ export default function Hero4() {
                     <div className="relative">
                       <Image
                         alt="Fresh ingredients and pasta making"
-                        src="/images/4.4.jpeg"
+                        src="/images/home/4.4.jpeg"
                         className="aspect-2/3 w-full rounded-xl bg-amber-100/50 object-cover shadow-lg"
                         width={176}
                         height={264}
@@ -162,7 +162,7 @@ export default function Hero4() {
                     <div className="relative">
                       <Image
                         alt="Beautifully plated pasta dishes"
-                        src="/images/4.3.jpg"
+                        src="/images/home/4.3.jpg"
                         className="aspect-2/3 w-full rounded-xl bg-amber-100/50 object-cover shadow-lg"
                         width={176}
                         height={264}

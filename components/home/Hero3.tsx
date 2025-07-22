@@ -42,7 +42,7 @@ export default function Hero3() {
         <div className="relative h-64 sm:h-80 order-1 lg:order-2 lg:col-span-5 lg:h-auto lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
           <Image
             alt="Elegant restaurant interior with handmade pasta station"
-            src="/images/3.png"
+            src="/images/home/3.png"
             className="w-full h-full bg-amber-50 object-cover"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
