@@ -1,6 +1,15 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Hero1() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Trigger animation after component mounts
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="relative isolate overflow-hidden pt-14">
       <Image
@@ -28,13 +37,25 @@ export default function Hero1() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
           <div className="text-center">
+            
+            {/* Option 1: Fade in with slide up */}
             <h1
-              className="text-5xl font-bold tracking-tight text-balance text-white sm:text-7xl"
+              className={`text-5xl font-bold tracking-tight text-balance text-white sm:text-7xl transform transition-all duration-1000 ease-out ${
+                isVisible 
+                  ? 'translate-y-0 opacity-100' 
+                  : 'translate-y-8 opacity-0'
+              }`}
               style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}
             >
               Handmade pasta, crafted with passion
             </h1>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+
+            <div className={`mt-10 flex items-center justify-center gap-x-6 transform transition-all duration-1000 ease-out ${
+              isVisible 
+                ? 'translate-y-0 opacity-100' 
+                : 'translate-y-8 opacity-0'
+            }`}
+            style={{ transitionDelay: '800ms' }}>
               <a
                 href="#"
                 className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out"
