@@ -1,24 +1,25 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
+import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Fragment } from "react";
 
 const navigationLeft = [
   { name: "MENU", href: "#" },
-  { name: "ABOUT US", href: "#" },
+  { name: "CHEF", href: "#" },
 ];
 
 const navigationRight = [
-  { name: "CONTACT US", href: "#" },
-  { name: "FOLLOW US", href: "#" },
+  { name: "CONTACT", href: "#" },
+  { name: "FOLLOW", href: "#" },
 ];
 
 const allNavigation = [
   { name: "MENU", href: "#" },
-  { name: "ABOUT US", href: "#" },
-  { name: "CONTACT US", href: "#" },
-  { name: "FOLLOW US", href: "#" },
+  { name: "CHEF", href: "#" },
+  { name: "CONTACT", href: "#" },
+  { name: "FOLLOW", href: "#" },
 ];
 
 export default function Navigation() {
@@ -105,42 +106,71 @@ export default function Navigation() {
           </button>
         </div>
       </nav>
-      {/* Mobile Menu Dialog - LEFT SIDE */}
-      <Dialog
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-        className="lg:hidden"
-      >
-        <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 left-0 z-50 w-full overflow-y-auto bg-amber-50 p-6 sm:max-w-sm sm:ring-1 sm:ring-amber-200">
-          <div className="flex items-center justify-end">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-amber-800"
+      
+      {/* Mobile Menu Dialog with Transition */}
+      <Transition show={mobileMenuOpen} as={Fragment}>
+        <Dialog onClose={setMobileMenuOpen} className="relative z-50 lg:hidden">
+          {/* Backdrop */}
+          <TransitionChild
+            as={Fragment}
+            enter="transition-opacity ease-linear duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/50" />
+          </TransitionChild>
+
+          {/* Sliding Panel */}
+          <div className="fixed inset-0 flex justify-end">
+            <TransitionChild
+              as={Fragment}
+              enter="transition ease-in-out duration-300 transform"
+              enterFrom="translate-x-full"
+              enterTo="translate-x-0"
+              leave="transition ease-in-out duration-300 transform"
+              leaveFrom="translate-x-0"
+              leaveTo="translate-x-full"
             >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="size-10" />
-            </button>
+              <DialogPanel className="relative ml-16 flex w-full max-w-xs flex-1">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-amber-50 px-6 pb-2 ring-1 ring-amber-200">
+                  <div className="flex h-24 pr-2 shrink-0 items-center justify-end">
+                    <button
+                      type="button"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="-m-2.5 p-2.5 text-amber-800 hover:bg-amber-100 rounded-md transition-opacity duration-300 hover:opacity-70"
+                    >
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon aria-hidden="true" className="h-10 w-10" />
+                    </button>
+                  </div>
+                  <nav className="flex flex-1 flex-col">
+                    <ul role="list" className="flex flex-1 flex-col gap-y-7">
+                      <li>
+                        <ul role="list" className="-mx-2 space-y-1">
+                          {allNavigation.map((item) => (
+                            <li key={item.name}>
+                              <a
+                                href={item.href}
+                                className="block rounded-md py-2 px-3 text-3xl font-normal text-amber-900 hover:bg-amber-100"
+                                style={{ fontFamily: "'Crimson Text', serif" }}
+                              >
+                                {item.name}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </DialogPanel>
+            </TransitionChild>
           </div>
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-amber-200">
-              <div className="space-y-2 py-6">
-                {allNavigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-3 text-xl font-normal text-amber-900 hover:bg-amber-100"
-                    style={{ fontFamily: "'Crimson Text', serif" }}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </DialogPanel>
-      </Dialog>
+        </Dialog>
+      </Transition>
     </header>
   );
 }
