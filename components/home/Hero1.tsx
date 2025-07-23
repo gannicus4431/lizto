@@ -22,6 +22,9 @@ export default function Hero1() {
         sizes="100vw"
       />
 
+      {/* Dark overlay for better text contrast */}
+      <div className="absolute inset-0 -z-10 bg-black/0"></div>
+
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -39,14 +42,16 @@ export default function Hero1() {
           <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
           <div className="text-center">
             
-            {/* Option 1: Fade in with slide up */}
+            {/* Enhanced text with better visibility */}
             <h1
               className={`text-5xl font-bold tracking-tight text-balance text-white sm:text-7xl transform transition-all duration-1000 ease-out ${
                 isVisible 
                   ? 'translate-y-0 opacity-100' 
                   : 'translate-y-8 opacity-0'
               }`}
-              style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}
+              style={{ 
+                textShadow: "0 4px 8px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.6)" 
+              }}
             >
               Handmade pasta, crafted with passion
             </h1>
@@ -59,7 +64,7 @@ export default function Hero1() {
             style={{ transitionDelay: '800ms' }}>
               <Link
                 href="/reservations"
-                className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out"
+                className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out shadow-lg"
               >
                 <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
                   reserve table
