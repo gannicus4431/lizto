@@ -4,13 +4,13 @@ import Link from 'next/link';
 const navigation = {
   main: [
     { name: 'Menu', href: '/menu' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Join Us', href: '/careers' },
+    { name: 'About', href: '/chef' },
+    { name: 'Join Us', href: '/' },
   ],
   social: [
     {
       name: 'Facebook',
-      href: 'https://facebook.com/lizto',
+      href: 'https://facebook.com/lizto.hk',
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -23,7 +23,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: 'https://instagram.com/lizto',
+      href: 'https://instagram.com/lizto.hk',
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -85,8 +85,21 @@ export default function Footer() {
             </a>
           ))}
         </div>
+
+        {/* Location and Contact Info */}
+        <div className="mt-8 text-center space-y-2">
+          <p className="text-sm text-amber-600">
+            📍G75A, G76C & G76D, G/F, Citywalk, 1 Yeung Uk Road, Tsuen Wan
+          </p>
+          <p className="text-sm text-amber-600">
+            Tel. 28860603
+          </p>
+          <p className="text-sm text-amber-600">
+            Business Hour. Mon - Sun | 11:30-21:30
+          </p>
+        </div>
         
-        <p className="mt-10 text-center text-sm text-amber-600 flex justify-center items-center gap-1">
+        <p className="mt-6 text-center text-sm text-amber-600 flex justify-center items-center gap-1">
           &copy; 2025 Lizto
           <svg 
             xmlns="http://www.w3.org/2000/svg" 

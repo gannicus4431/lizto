@@ -15,7 +15,7 @@ export default function Hero1() {
     <div className="relative isolate overflow-hidden pt-14">
       <Image
         alt="Restaurant background"
-        src="/images/home/1.jpg"
+        src="/images/home/1.webp"
         className="absolute inset-0 -z-10 object-cover"
         fill
         priority

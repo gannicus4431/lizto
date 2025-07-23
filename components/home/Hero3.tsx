@@ -79,11 +79,11 @@ export default function Hero3() {
             }`}
             style={{ transitionDelay: '600ms' }}>
               <Link
-                href="/about"
+                href="/chef"
                 className="inline-block bg-amber-600 px-8 py-3 text-sm font-semibold tracking-widest text-white uppercase rounded-full hover:bg-amber-700 transition-colors duration-300 ease-out"
               >
                 <span className="inline-block hover:scale-110 transition-transform duration-300 ease-out">
-                  more about us
+                  About our chef
                 </span>
               </Link>
             </div>
